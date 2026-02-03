@@ -55,6 +55,7 @@
     back:
     - WeaponPistolViper
     - PinpointerSyndicateNuclear
+    autoImplant: # Far Horizons
     - DeathAcidifierImplanter
 
 #Nuclear Operative Gear
@@ -94,6 +95,7 @@
     - PinpointerSyndicateNuclear
     - HandheldHealthAnalyzer
     - CombatMedipen
+    autoImplant: # Far Horizons
     - DeathAcidifierImplanter
 
 #Lone Operative Gear
