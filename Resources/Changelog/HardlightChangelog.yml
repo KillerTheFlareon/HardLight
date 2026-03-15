@@ -1763,3 +1763,9 @@ Entries:
       message: Fixed interactions showing target/origin as their uid
   id: 191
   time: '2026-03-15T18:57:20.0000000+00:00'
+- author: Sully669
+  changes:
+    - type: Fix
+      message: fixed broken access for genetics and journalism
+  id: 192
+  time: '2026-03-15T18:57:41.0000000+00:00'
