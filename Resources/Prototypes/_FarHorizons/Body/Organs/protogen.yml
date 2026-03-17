@@ -39,11 +39,12 @@
 
 - type: entity
   id: OrganProtogenBrain
-  parent: [OrganHumanBrain, BaseProtogenUnGibbable]
+  parent: [OrganHumanBrain, BaseProtogenOrgan]
   name: Cybernetic Brain
   description: "The source of incredible, unending intelligence. 01201020 02102111 01201210 02121012 20121210"
   components:
   - type: Sprite
+    sprite: _FarHorizons/Mobs/Species/Protogen/organs.rsi
     state: brain
 
 - type: entity

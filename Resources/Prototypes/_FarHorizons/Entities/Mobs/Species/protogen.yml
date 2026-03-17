@@ -29,7 +29,6 @@
     - map: ["enum.HumanoidVisualLayers.LFoot"]
     - map: ["enum.HumanoidVisualLayers.RFoot"]
     - map: ["enum.HumanoidVisualLayers.LHand"]
-    - map: [ "outerClothing2" ]
     - map: ["enum.HumanoidVisualLayers.RHand"]
     - map: [ "gloves" ]
     - map: [ "shoes" ]
@@ -130,7 +129,6 @@
       - DoorBumpOpener
       - AnomalyHost
       - Protogen
-      - SiliconEmotesFH 
   - type: Temperature
     currentTemperature: 310.15
     specificHeat: 46
@@ -228,6 +226,11 @@
     species: ProtoVulp
     hideLayersOnEquip:
     - Hair
+    # HL start: Hide genital markings on equip
+    - Genital
+    - Penis
+    - Breasts
+    # HL end
   - type: Inventory
     speciesId: protovulp #to be replaced with proto[species] when new sprites are made
     templateId: protogen
@@ -255,13 +258,22 @@
   - type: ContentEye
     targetZoom: "1.125, 1.125"
     maxZoom: "1.125, 1.125"
+  - type: JumpAbility
+    action: ActionVulpkaninGravityJump
+    canCollide: true
+    jumpDistance: 3
+    jumpSound:
+      path: /Audio/Weapons/punchmiss.ogg
+      params:
+        pitch: 1.33
+        volume: -5
+        variation: 0.05
   - type: Tag
     tags:
       - CanPilot
       - FootstepSound
       - DoorBumpOpener
       - AnomalyHost
-      - SiliconEmotesFH
       - Protogen
       - Vulpkanin
 
@@ -331,6 +343,7 @@
         Quantity: 300
   - type: Sprite # Need to redefine the whole order to draw the tail over their gas tank
     layers:
+    - map: [ "enum.HumanoidVisualLayers.TailBehind" ]  # HL Modification
     - map: [ "enum.HumanoidVisualLayers.Chest" ]
     - map: [ "enum.HumanoidVisualLayers.Head" ]
     - map: [ "enum.HumanoidVisualLayers.Snout" ]
@@ -339,8 +352,11 @@
     - map: [ "enum.HumanoidVisualLayers.LArm" ]
     - map: [ "enum.HumanoidVisualLayers.RLeg" ]
     - map: [ "enum.HumanoidVisualLayers.LLeg" ]
-    - map: [ "enum.HumanoidVisualLayers.UndergarmentBottom" ]
+    - map: [ "enum.HumanoidVisualLayers.Genital" ] # HL Modification
+    - map: [ "enum.HumanoidVisualLayers.Breasts" ] # HL Modification
     - map: [ "enum.HumanoidVisualLayers.UndergarmentTop" ]
+    - map: [ "enum.HumanoidVisualLayers.Penis" ] # HL Modification
+    - map: [ "enum.HumanoidVisualLayers.UndergarmentBottom" ]
     - map: [ "jumpsuit" ]
     - map: [ "enum.HumanoidVisualLayers.LFoot" ]
     - map: [ "enum.HumanoidVisualLayers.RFoot" ]
@@ -351,12 +367,11 @@
     - map: [ "ears" ]
     - map: [ "eyes" ]
     - map: [ "outerClothing" ]
-    - map: [ "rig" ]
     - map: [ "belt" ]
     - map: [ "id" ]
     - map: [ "back" ]
+    - map: [ "enum.HumanoidVisualLayers.TailOversuit" ] # HL Modification
     - map: [ "neck" ]
-    - map: [ "pin" ]
     - map: [ "suitstorage" ]
     - map: [ "enum.HumanoidVisualLayers.FacialHair" ]
     - map: [ "enum.HumanoidVisualLayers.Hair" ]
@@ -380,6 +395,11 @@
     species: ProtoVox
     hideLayersOnEquip:
     - Hair
+    # HL start: Hide genital markings on equip
+    - Genital
+    - Penis
+    - Breasts
+    # HL end
     markingsDisplacement:
       Hair:
         sizeMaps:
@@ -447,7 +467,6 @@
       - FootstepSound
       - DoorBumpOpener
       - AnomalyHost
-      - SiliconEmotesFH
       - Protogen
       - Vox
 
@@ -537,6 +556,11 @@
     species: ProtoThaven
     hideLayersOnEquip:
     - Hair
+    # HL start: Hide genital markings on equip
+    - Genital
+    - Penis
+    - Breasts
+    # HL end
   - type: MeleeWeapon
     attackRate: 0.55
     soundHit:
@@ -605,7 +629,6 @@
       - FootstepSound
       - DoorBumpOpener
       - AnomalyHost
-      - SiliconEmotesFH
       - Protogen
       - Thaven
 
@@ -673,6 +696,11 @@
     species: ProtoSlimePerson
     hideLayersOnEquip:
     - Hair
+    # HL start: Hide genital markings on equip
+    - Genital
+    - Penis
+    - Breasts
+    # HL end
   - type: UserInterface
     interfaces:
       enum.StorageUiKey.Key:
@@ -784,7 +812,6 @@
       - FootstepSound
       - DoorBumpOpener
       - AnomalyHost
-      - SiliconEmotesFH
       - Protogen
       - SlimePerson
 
@@ -814,6 +841,7 @@
   id: BaseMobProtoKin
   abstract: true
   components:
+    - type: PotentialPsionic #Nyano - Summary: makes potentially psionic. 
     - type: Repairable # So welder is just a special little snowflake in the code. I tried making healing with welder work through ConditionalHealing component, but it would require too many changes in too many places. So we will keep on the trend and have brute healing defined here. /shrug
       doAfterDelay: 1 # Faster than normal so using welding to heal isn't absolute ass for protogens
       allowSelfRepair: true
@@ -833,6 +861,11 @@
       species: ProtoKin
       hideLayersOnEquip:
       - Hair
+      # HL start: Hide genital markings on equip
+      - Genital
+      - Penis
+      - Breasts
+      # HL end
     - type: Icon
       sprite: _FarHorizons/Mobs/Species/Proto-Kin/parts.rsi
       state: full
@@ -1000,7 +1033,6 @@
         - FootstepSound
         - DoorBumpOpener
         - AnomalyHost
-        - SiliconEmotesFH
         - Protogen
         - Shadekin
 
@@ -1022,6 +1054,16 @@
   id: BaseMobProtoResomi
   abstract: true
   components:
+  - type: JumpAbility
+    action: ActionResomiGravityJump
+    canCollide: true
+    jumpDistance: 3.5
+    jumpSound:
+      path: /Audio/Weapons/punchmiss.ogg
+      params:
+        pitch: 1.33
+        volume: -5
+        variation: 0.05
   - type: DamageVisuals
     thresholds: [ 10, 30, 50, 70]
     targetLayers:
@@ -1037,10 +1079,10 @@
     - "enum.HumanoidVisualLayers.LFoot"
     damageOverlayGroups:
       Brute:
-        sprite: Mobs/Effects/Resomi/brute_damage.rsi
+        sprite: Floof/Mobs/Effects/Resomi/brute_damage.rsi
         color: "#C048C2"
       Burn:
-        sprite: Mobs/Effects/Resomi/burn_damage.rsi
+        sprite: Floof/Mobs/Effects/Resomi/burn_damage.rsi
   - type: Bloodstream
     bloodReferenceSolution:
       reagents:
@@ -1057,6 +1099,11 @@
     species: ProtoResomi
     hideLayersOnEquip:
     - Hair
+    # HL start: Hide genital markings on equip
+    - Genital
+    - Penis
+    - Breasts
+    # HL end
   - type: Fixtures
     fixtures: 
       fix1:
@@ -1095,7 +1142,7 @@
     handDisplacement:
       sizeMaps:
         32:
-          sprite: Mobs/Species/Resomi/displacement.rsi
+          sprite: Floof/Mobs/Species/Resomi/displacement.rsi
           state: inHand
   - type: Inventory
     speciesId: resomi #to be replaced with proto[species] when new sprites are made
@@ -1104,123 +1151,133 @@
       jumpsuit:
         sizeMaps:
           32:
-            sprite: Mobs/Species/Resomi/displacement.rsi
+            sprite: Floof/Mobs/Species/Resomi/displacement.rsi
+            state: jumpsuit
+      accessory1:
+        sizeMaps:
+          32:
+            sprite: Floof/Mobs/Species/Resomi/displacement.rsi
+            state: jumpsuit
+      accessory2:
+        sizeMaps:
+          32:
+            sprite: Floof/Mobs/Species/Resomi/displacement.rsi
             state: jumpsuit
       head:
         sizeMaps:
           32:
-            sprite: Mobs/Species/Resomi/displacement.rsi
+            sprite: Floof/Mobs/Species/Resomi/displacement.rsi
             state: head
       eyes:
         sizeMaps:
           32:
-            sprite: Mobs/Species/Resomi/displacement.rsi
+            sprite: Floof/Mobs/Species/Resomi/displacement.rsi
             state: eyes
       gloves:
         sizeMaps:
           32:
-            sprite: Mobs/Species/Resomi/displacement.rsi
+            sprite: Floof/Mobs/Species/Resomi/displacement.rsi
             state: hands
       back:
         sizeMaps:
           32:
-            sprite: Mobs/Species/Resomi/displacement.rsi
+            sprite: Floof/Mobs/Species/Resomi/displacement.rsi
             state: back
       ears:
         sizeMaps:
           32:
-            sprite: Mobs/Species/Resomi/displacement.rsi
+            sprite: Floof/Mobs/Species/Resomi/displacement.rsi
             state: ears
       shoes:
         sizeMaps:
           32:
-            sprite: Mobs/Species/Resomi/displacement.rsi
+            sprite: Floof/Mobs/Species/Resomi/displacement.rsi
             state: feet
       neck:
         sizeMaps:
           32:
-            sprite: Mobs/Species/Resomi/displacement.rsi
+            sprite: Floof/Mobs/Species/Resomi/displacement.rsi
             state: neck
       mask:
         sizeMaps:
           32:
-            sprite: Mobs/Species/Resomi/displacement.rsi
+            sprite: Floof/Mobs/Species/Resomi/displacement.rsi
             state: mask
       outerClothing:
         sizeMaps:
           32:
-            sprite: Mobs/Species/Resomi/displacement.rsi
+            sprite: Floof/Mobs/Species/Resomi/displacement.rsi
             state: outerClothing
       suitstorage:
         sizeMaps:
           32:
-            sprite: Mobs/Species/Resomi/displacement.rsi
+            sprite: Floof/Mobs/Species/Resomi/displacement.rsi
             state: suitStorage
       belt:
         sizeMaps:
           32:
-            sprite: Mobs/Species/Resomi/displacement.rsi
+            sprite: Floof/Mobs/Species/Resomi/displacement.rsi
             state: belt
     femaleDisplacements:
       jumpsuit:
         sizeMaps:
           32:
-            sprite: Mobs/Species/Resomi/displacement.rsi
+            sprite: Floof/Mobs/Species/Resomi/displacement.rsi
             state: jumpsuit
       head:
         sizeMaps:
           32:
-            sprite: Mobs/Species/Resomi/displacement.rsi
+            sprite: Floof/Mobs/Species/Resomi/displacement.rsi
             state: head
       eyes:
         sizeMaps:
           32:
-            sprite: Mobs/Species/Resomi/displacement.rsi
+            sprite: Floof/Mobs/Species/Resomi/displacement.rsi
             state: eyes
       gloves:
         sizeMaps:
           32:
-            sprite: Mobs/Species/Resomi/displacement.rsi
+            sprite: Floof/Mobs/Species/Resomi/displacement.rsi
             state: hands
       back:
         sizeMaps:
           32:
-            sprite: Mobs/Species/Resomi/displacement.rsi
+            sprite: Floof/Mobs/Species/Resomi/displacement.rsi
             state: back
       ears:
         sizeMaps:
           32:
-            sprite: Mobs/Species/Resomi/displacement.rsi
+            sprite: Floof/Mobs/Species/Resomi/displacement.rsi
             state: ears
       shoes:
         sizeMaps:
           32:
-            sprite: Mobs/Species/Resomi/displacement.rsi
+            sprite: Floof/Mobs/Species/Resomi/displacement.rsi
             state: feet
       neck:
         sizeMaps:
           32:
-            sprite: Mobs/Species/Resomi/displacement.rsi
+            sprite: Floof/Mobs/Species/Resomi/displacement.rsi
             state: neck
       mask:
         sizeMaps:
           32:
-            sprite: Mobs/Species/Resomi/displacement.rsi
+            sprite: Floof/Mobs/Species/Resomi/displacement.rsi
             state: mask
       outerClothing:
         sizeMaps:
           32:
-            sprite: Mobs/Species/Resomi/displacement.rsi
+            sprite: Floof/Mobs/Species/Resomi/displacement.rsi
             state: outerClothing
       suitstorage:
         sizeMaps:
           32:
-            sprite: Mobs/Species/Resomi/displacement.rsi
+            sprite: Floof/Mobs/Species/Resomi/displacement.rsi
             state: suitStorage
       belt:
         sizeMaps:
           32:
-            sprite: Mobs/Species/Resomi/displacement.rsi
+            sprite: Floof/Mobs/Species/Resomi/displacement.rsi
             state: belt
   - type: Tag
     tags:
@@ -1229,7 +1286,6 @@
     - DoorBumpOpener
     - AnomalyHost
     - Resomi
-    - SiliconEmotesFH 
     - Protogen
   - type: NightVision
     
@@ -1248,123 +1304,123 @@
       jumpsuit:
         sizeMaps:
           32:
-            sprite: Mobs/Species/Resomi/displacement.rsi
+            sprite: Floof/Mobs/Species/Resomi/displacement.rsi
             state: jumpsuit
       eyes:
         sizeMaps:
           32:
-            sprite: Mobs/Species/Resomi/displacement.rsi
+            sprite: Floof/Mobs/Species/Resomi/displacement.rsi
             state: eyes
       gloves:
         sizeMaps:
           32:
-            sprite: Mobs/Species/Resomi/displacement.rsi
+            sprite: Floof/Mobs/Species/Resomi/displacement.rsi
             state: hands
       head:
         sizeMaps:
           32:
-            sprite: Mobs/Species/Resomi/displacement.rsi
+            sprite: Floof/Mobs/Species/Resomi/displacement.rsi
             state: head
       back:
         sizeMaps:
           32:
-            sprite: Mobs/Species/Resomi/displacement.rsi
+            sprite: Floof/Mobs/Species/Resomi/displacement.rsi
             state: back
       ears:
         sizeMaps:
           32:
-            sprite: Mobs/Species/Resomi/displacement.rsi
+            sprite: Floof/Mobs/Species/Resomi/displacement.rsi
             state: ears
       shoes:
         sizeMaps:
           32:
-            sprite: Mobs/Species/Resomi/displacement.rsi
+            sprite: Floof/Mobs/Species/Resomi/displacement.rsi
             state: feet
       neck:
         sizeMaps:
           32:
-            sprite: Mobs/Species/Resomi/displacement.rsi
+            sprite: Floof/Mobs/Species/Resomi/displacement.rsi
             state: neck
       mask:
         sizeMaps:
           32:
-            sprite: Mobs/Species/Resomi/displacement.rsi
+            sprite: Floof/Mobs/Species/Resomi/displacement.rsi
             state: mask
       outerClothing:
         sizeMaps:
           32:
-            sprite: Mobs/Species/Resomi/displacement.rsi
+            sprite: Floof/Mobs/Species/Resomi/displacement.rsi
             state: outerClothing
       suitstorage:
         sizeMaps:
           32:
-            sprite: Mobs/Species/Resomi/displacement.rsi
+            sprite: Floof/Mobs/Species/Resomi/displacement.rsi
             state: suitStorage
       belt:
         sizeMaps:
           32:
-            sprite: Mobs/Species/Resomi/displacement.rsi
+            sprite: Floof/Mobs/Species/Resomi/displacement.rsi
             state: belt
     femaleDisplacements:
       jumpsuit:
         sizeMaps:
           32:
-            sprite: Mobs/Species/Resomi/displacement.rsi
+            sprite: Floof/Mobs/Species/Resomi/displacement.rsi
             state: jumpsuit
       eyes:
         sizeMaps:
           32:
-            sprite: Mobs/Species/Resomi/displacement.rsi
+            sprite: Floof/Mobs/Species/Resomi/displacement.rsi
             state: eyes
       gloves:
         sizeMaps:
           32:
-            sprite: Mobs/Species/Resomi/displacement.rsi
+            sprite: Floof/Mobs/Species/Resomi/displacement.rsi
             state: hands
       head:
         sizeMaps:
           32:
-            sprite: Mobs/Species/Resomi/displacement.rsi
+            sprite: Floof/Mobs/Species/Resomi/displacement.rsi
             state: head
       back:
         sizeMaps:
           32:
-            sprite: Mobs/Species/Resomi/displacement.rsi
+            sprite: Floof/Mobs/Species/Resomi/displacement.rsi
             state: back
       ears:
         sizeMaps:
           32:
-            sprite: Mobs/Species/Resomi/displacement.rsi
+            sprite: Floof/Mobs/Species/Resomi/displacement.rsi
             state: ears
       shoes:
         sizeMaps:
           32:
-            sprite: Mobs/Species/Resomi/displacement.rsi
+            sprite: Floof/Mobs/Species/Resomi/displacement.rsi
             state: feet
       neck:
         sizeMaps:
           32:
-            sprite: Mobs/Species/Resomi/displacement.rsi
+            sprite: Floof/Mobs/Species/Resomi/displacement.rsi
             state: neck
       mask:
         sizeMaps:
           32:
-            sprite: Mobs/Species/Resomi/displacement.rsi
+            sprite: Floof/Mobs/Species/Resomi/displacement.rsi
             state: mask
       outerClothing:
         sizeMaps:
           32:
-            sprite: Mobs/Species/Resomi/displacement.rsi
+            sprite: Floof/Mobs/Species/Resomi/displacement.rsi
             state: outerClothing
       suitstorage:
         sizeMaps:
           32:
-            sprite: Mobs/Species/Resomi/displacement.rsi
+            sprite: Floof/Mobs/Species/Resomi/displacement.rsi
             state: suitStorage
       belt:
         sizeMaps:
           32:
-            sprite: Mobs/Species/Resomi/displacement.rsi
+            sprite: Floof/Mobs/Species/Resomi/displacement.rsi
             state: belt
 
 #region REPTILIAN ####
@@ -1380,6 +1436,11 @@
     species: ProtoReptile
     hideLayersOnEquip:
     - Hair
+    # HL start: Hide genital markings on equip
+    - Genital
+    - Penis
+    - Breasts
+    # HL end
   - type: Puller
     needsHands: false
   - type: Icon
@@ -1449,7 +1510,6 @@
       - FootstepSound
       - DoorBumpOpener
       - AnomalyHost
-      - SiliconEmotesFH
       - Protogen
       - Reptilian
 
@@ -1505,6 +1565,11 @@
     species: ProtoMoth
     hideLayersOnEquip:
     - Hair
+    # HL start: Hide genital markings on equip
+    - Genital
+    - Penis
+    - Breasts
+    # HL end
   - type: Icon
     sprite: _FarHorizons/Mobs/Species/Proto-Moth/parts.rsi
     state: full
@@ -1562,6 +1627,7 @@
     noRot: true
     drawdepth: Mobs
     layers:
+      - map: [ "enum.HumanoidVisualLayers.TailBehind" ]  # HL Modification
       - map: [ "enum.HumanoidVisualLayers.Chest" ]
       - map: [ "enum.HumanoidVisualLayers.Head" ]
       - map: [ "enum.HumanoidVisualLayers.Snout" ]
@@ -1570,13 +1636,15 @@
       - map: [ "enum.HumanoidVisualLayers.LArm" ]
       - map: [ "enum.HumanoidVisualLayers.RLeg" ]
       - map: [ "enum.HumanoidVisualLayers.LLeg" ]
-      - map: [ "enum.HumanoidVisualLayers.UndergarmentBottom" ]
+      - map: [ "enum.HumanoidVisualLayers.Genital" ] # HL Modification
+      - map: [ "enum.HumanoidVisualLayers.Breasts" ] # HL Modification
       - map: [ "enum.HumanoidVisualLayers.UndergarmentTop" ]
+      - map: [ "enum.HumanoidVisualLayers.Penis" ] # HL Modification
+      - map: [ "enum.HumanoidVisualLayers.UndergarmentBottom" ]
       - map: [ "jumpsuit" ]
       - map: [ "enum.HumanoidVisualLayers.LHand" ]
       - map: [ "enum.HumanoidVisualLayers.RHand" ]
       - map: [ "enum.HumanoidVisualLayers.LFoot" ]
-      - map: [ "outerClothing2" ]
       - map: [ "enum.HumanoidVisualLayers.RFoot" ]
       - map: [ "enum.HumanoidVisualLayers.Handcuffs" ]
         color: "#ffffff"
@@ -1588,13 +1656,12 @@
       - map: [ "ears" ]
       - map: [ "eyes" ]
       - map: [ "outerClothing" ]
-      - map: [ "rig" ]
       - map: [ "belt" ]
       - map: [ "id" ]
       - map: [ "enum.HumanoidVisualLayers.Tail" ]
       - map: [ "back" ]
+      - map: [ "enum.HumanoidVisualLayers.TailOversuit" ] # HL Modification
       - map: [ "neck" ]
-      - map: [ "pin" ]
       - map: [ "enum.HumanoidVisualLayers.FacialHair" ]
       - map: [ "enum.HumanoidVisualLayers.Hair" ]
       - map: [ "enum.HumanoidVisualLayers.HeadSide" ]
@@ -1668,7 +1735,6 @@
       - FootstepSound
       - DoorBumpOpener
       - AnomalyHost
-      - SiliconEmotesFH
       - Protogen
       - Moth
 
@@ -1767,6 +1833,11 @@
     species: ProtoHumie
     hideLayersOnEquip:
     - Hair
+    # HL start: Hide genital markings on equip
+    - Genital
+    - Penis
+    - Breasts
+    # HL end
   - type: Inventory
     templateId: protogen
     femaleDisplacements:
@@ -1782,7 +1853,6 @@
       - FootstepSound
       - DoorBumpOpener
       - AnomalyHost
-      - SiliconEmotesFH
       - Protogen
       - Human
 
@@ -1813,6 +1883,11 @@
     species: ProtoFeline
     hideLayersOnEquip:
     - Hair
+    # HL start: Hide genital markings on equip
+    - Genital
+    - Penis
+    - Breasts
+    # HL end
   - type: Icon
     sprite: _FarHorizons/Mobs/Species/Proto-Feline/parts.rsi
     state: fullcat
@@ -1869,7 +1944,6 @@
     - DoorBumpOpener
     - AnomalyHost
     - Felionoid
-    - SiliconEmotesFH 
     - Protogen
   - type: Fixtures
     fixtures:
@@ -2018,6 +2092,11 @@
     species: ProtoDawi
     hideLayersOnEquip:
     - Hair
+    # HL start: Hide genital markings on equip
+    - Genital
+    - Penis
+    - Breasts
+    # HL end
   - type: Inventory
     templateId: protogen
     femaleDisplacements:
@@ -2032,7 +2111,6 @@
       - FootstepSound
       - DoorBumpOpener
       - AnomalyHost
-      - SiliconEmotesFH
       - Protogen
       - Dwarf
 
@@ -2066,9 +2144,15 @@
     - DoorBumpOpener
     - AnomalyHost
     - Diona
-    - SiliconEmotesFH 
     - Protogen
   - type: HumanoidAppearance
+    hideLayersOnEquip:
+    - Hair
+    # HL start: Hide genital markings on equip
+    - Genital
+    - Penis
+    - Breasts
+    # HL end
     species: ProtoDionae
   - type: Hunger
     baseDecayRate: 0.0083
@@ -2195,10 +2279,16 @@
         - DoorBumpOpener
         - AnomalyHost
         - Avali
-        - SiliconEmotesFH 
         - Protogen
     - type: HumanoidAppearance
       species: ProtoAvali
+      hideLayersOnEquip:
+      - Hair
+      # HL start: Hide genital markings on equip
+      - Genital
+      - Penis
+      - Breasts
+      # HL end
     - type: Hunger # on 2x more
       thresholds:
         Overfed: 250
@@ -2360,12 +2450,24 @@
   id: BaseMobProtoArachnid
   abstract: true
   components:
+  - type: Sericulture
+    action: ActionSericulture
+    productionLength: 2
+    entityProduced: MaterialWebSilk1
+    hungerCost: 4 # Should total to 25 total silk on full hunger
   - type: IgnoreSpiderWeb
   - type: Body
     prototype: ProtoArachnid
     requiredLegs: 2
   - type: HumanoidAppearance
     species: ProtoArachnid
+    hideLayersOnEquip:
+    - Hair
+    # HL start: Hide genital markings on equip
+    - Genital
+    - Penis
+    - Breasts
+    # HL end
   - type: Tag
     tags:
     - CanPilot
@@ -2374,7 +2476,6 @@
     - SpiderCraft
     - AnomalyHost
     - Arachnid
-    - SiliconEmotesFH 
     - Protogen
   - type: Butcherable
     butcheringType: Spike
@@ -2407,6 +2508,7 @@
         sprite: Mobs/Effects/burn_damage.rsi
   - type: Sprite
     layers:
+      - map: [ "enum.HumanoidVisualLayers.TailBehind" ]  # HL Modification
       - map: [ "enum.HumanoidVisualLayers.Chest" ]
       - map: [ "enum.HumanoidVisualLayers.Head" ]
       - map: [ "enum.HumanoidVisualLayers.Snout" ]
@@ -2415,24 +2517,25 @@
       - map: [ "enum.HumanoidVisualLayers.LArm" ]
       - map: [ "enum.HumanoidVisualLayers.RLeg" ]
       - map: [ "enum.HumanoidVisualLayers.LLeg" ]
-      - map: [ "enum.HumanoidVisualLayers.UndergarmentBottom" ]
+      - map: [ "enum.HumanoidVisualLayers.Genital" ] # HL Modification
+      - map: [ "enum.HumanoidVisualLayers.Breasts" ] # HL Modification
       - map: [ "enum.HumanoidVisualLayers.UndergarmentTop" ]
+      - map: [ "enum.HumanoidVisualLayers.Penis" ] # HL Modification
+      - map: [ "enum.HumanoidVisualLayers.UndergarmentBottom" ]
       - map: ["jumpsuit"]
       - map: ["enum.HumanoidVisualLayers.LFoot"]
       - map: ["enum.HumanoidVisualLayers.RFoot"]
       - map: ["enum.HumanoidVisualLayers.LHand"]
-      - map: [ "outerClothing2" ] # FH
       - map: ["enum.HumanoidVisualLayers.RHand"]
       - map: [ "gloves" ]
       - map: [ "shoes" ]
       - map: [ "outerClothing" ]
-      - map: [ "rig" ]
       - map: [ "belt" ]
       - map: [ "id" ]
       - map: [ "enum.HumanoidVisualLayers.Tail" ]
       - map: [ "back" ]
+      - map: [ "enum.HumanoidVisualLayers.TailOversuit" ] # HL Modification
       - map: [ "neck" ]
-      - map: [ "pin" ]
       - map: [ "enum.HumanoidVisualLayers.FacialHair" ]
       - map: [ "enum.HumanoidVisualLayers.Hair" ]
       - map: [ "enum.HumanoidVisualLayers.HeadSide" ]
