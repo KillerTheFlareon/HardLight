@@ -101,7 +101,7 @@ public sealed class HealingSystem : EntitySystem
         var healed = _damageable.TryChangeDamage(entity.Owner, damageToApply, true, origin: args.User, canSever: false); // Shitmed Change
 
         // HardLight Change end
-        
+
         if (healed == null && healing.BloodlossModifier != 0)
             return;
 
@@ -204,7 +204,7 @@ public sealed class HealingSystem : EntitySystem
             args.Handled = true;
     }
 
-    private bool TryHeal(EntityUid uid, EntityUid user, EntityUid target, HealingComponent component)
+    public bool TryHeal(EntityUid uid, EntityUid user, EntityUid target, HealingComponent component) // Far Horizons
     {
         if (!TryComp<DamageableComponent>(target, out var targetDamage))
             return false;
