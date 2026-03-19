@@ -9,3 +9,33 @@
 
 - type: Tag
   id: Protogen
+
+- type: Tag
+  id: Vulpkanin
+
+- type: Tag
+  id: Dwarf
+
+- type: Tag
+  id: Human
+
+- type: Tag
+  id: Moth
+
+- type: Tag
+  id: Reptilian
+
+- type: Tag
+  id: Shadekin
+
+- type: Tag
+  id: SlimePerson
+
+- type: Tag
+  id: Thaven
+
+- type: Tag
+  id: Vox
+
+- type: Tag
+  id: Organic
