@@ -1,5 +1,3 @@
-using Content.Server.Medical.Components;
-using Content.Shared.Chemistry.Reagent;
 using Content.Shared.Damage;
 using Content.Shared.Damage.Prototypes;
 using Content.Shared.Tag;
@@ -8,7 +6,7 @@ using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization;
 
-namespace Content.Server._FarHorizons.Medical.ConditionalHealing;
+namespace Content.Shared._FarHorizons.Medical.ConditionalHealing;
 
 [Serializable, NetSerializable, DataDefinition]
 public sealed partial class ConditionalHealingData
@@ -29,19 +27,6 @@ public sealed partial class ConditionalHealingData
     public SoundSpecifier? HealingBeginSound = null;
     [DataField]
     public SoundSpecifier? HealingEndSound = null;
-
-    public HealingComponent MakeComponent() =>
-        new()
-        {
-            Damage = Damage,
-            BloodlossModifier = BloodlossModifier,
-            ModifyBloodLevel = ModifyBloodLevel,
-            DamageContainers = DamageContainers,
-            Delay = Delay,
-            SelfHealPenaltyMultiplier = SelfHealPenaltyMultiplier,
-            HealingBeginSound = HealingBeginSound,
-            HealingEndSound = HealingEndSound,
-        };
 }
 
 [Serializable, NetSerializable, DataDefinition]
