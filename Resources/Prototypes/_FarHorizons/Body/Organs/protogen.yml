@@ -156,7 +156,7 @@
 
 - type: entity
   id: OrganProtogenStomach
-  parent: [OrganAnimalStomach, OrganHumanStomach]
+  parent: OrganAnimalStomach
   name: Biological Reactor
   description: "Some call it over-engineered, but it's vital to the function of a protogen. Turns organic matter into organic and electrical energy to power the protogen's cybernetics and flesh."
   components:
