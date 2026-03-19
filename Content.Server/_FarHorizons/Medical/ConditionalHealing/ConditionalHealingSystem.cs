@@ -1,9 +1,12 @@
 using System.Linq;
 using Content.Server.Medical;
+using Content.Server.Medical.Components;
+using Content.Shared._FarHorizons.Medical.ConditionalHealing;
 using Content.Shared._Shitmed.Medical.Surgery;
 using Content.Shared.Interaction;
 using Content.Shared.Interaction.Events;
 using Content.Shared.Tag;
+
 namespace Content.Server._FarHorizons.Medical.ConditionalHealing;
 
 public sealed class ConditionalHealingSystem : EntitySystem
@@ -26,7 +29,7 @@ public sealed class ConditionalHealingSystem : EntitySystem
             SelectBestMatch((ent, ent.Comp), args.User) is not ConditionalHealingData healing)
             return;
 
-        args.Handled = _healing.TryHeal(ent, args.User, args.User, healing.MakeComponent());
+        args.Handled = _healing.TryHeal(ent, args.User, args.User, MakeComponent(healing));
     }
 
     private void OnAfterInteract(Entity<ConditionalHealingComponent> ent, ref AfterInteractEvent args)
@@ -38,7 +41,7 @@ public sealed class ConditionalHealingSystem : EntitySystem
             SelectBestMatch((ent, ent.Comp), args.Target.Value) is not ConditionalHealingData healing)
             return;
 
-        args.Handled = _healing.TryHeal(ent, args.User, args.Target.Value, healing.MakeComponent());
+        args.Handled = _healing.TryHeal(ent, args.User, args.Target.Value, MakeComponent(healing));
     }
 
     public ConditionalHealingData? SelectBestMatch(Entity<ConditionalHealingComponent?> item, EntityUid target) =>
@@ -48,4 +51,17 @@ public sealed class ConditionalHealingSystem : EntitySystem
                 .Where(p => _tag.HasAnyTag(target, p.AllowedTags))
                 .Select(p => (ConditionalHealingData?)p.Healing)
                 .FirstOrDefault((ConditionalHealingData?)null);
+
+    private static HealingComponent MakeComponent(ConditionalHealingData data) =>
+        new()
+        {
+            Damage = data.Damage,
+            BloodlossModifier = data.BloodlossModifier,
+            ModifyBloodLevel = data.ModifyBloodLevel,
+            DamageContainers = data.DamageContainers,
+            Delay = data.Delay,
+            SelfHealPenaltyMultiplier = data.SelfHealPenaltyMultiplier,
+            HealingBeginSound = data.HealingBeginSound,
+            HealingEndSound = data.HealingEndSound,
+        };
 }
