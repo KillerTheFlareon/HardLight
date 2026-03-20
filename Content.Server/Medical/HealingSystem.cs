@@ -20,6 +20,8 @@ using Content.Shared.Mobs.Systems;
 using Content.Shared.Popups;
 using Content.Shared.Stacks;
 using Content.Shared.Body.Systems; // Shitmed Change
+using Content.Server._FarHorizons.Medical.ConditionalHealing; // Far Horizons
+using Content.Shared._FarHorizons.Medical.ConditionalHealing; // Far Horizons
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Random;
 using Robust.Shared.Audio;
@@ -44,6 +46,7 @@ public sealed class HealingSystem : EntitySystem
     [Dependency] private readonly PopupSystem _popupSystem = default!;
     [Dependency] private readonly SharedSolutionContainerSystem _solutionContainerSystem = default!;
     [Dependency] private readonly SharedBodySystem _bodySystem = default!; // Shitmed Change
+    [Dependency] private readonly ConditionalHealingSystem _conditionalHealing = default!; // Far Horizons
 
     public override void Initialize()
     {
@@ -57,17 +60,25 @@ public sealed class HealingSystem : EntitySystem
     {
         var dontRepeat = false;
 
-        if (!TryComp(args.Used, out HealingComponent? healing))
-            return;
-
         if (args.Handled || args.Cancelled)
             return;
+
+        if (!TryComp(args.Used, out HealingComponent? healing))
+        {
+            // Far Horizons, handle fake components from conditional healing
+            if(args.Used is null || _conditionalHealing.SelectBestMatch(args.Used.Value, entity) is not ConditionalHealingData healingData)
+                return;
+            healing = ConditionalHealingSystem.MakeComponent(healingData);
+        }
 
         if (healing.DamageContainers is not null &&
             entity.Comp.DamageContainerID is not null &&
             !healing.DamageContainers.Contains(entity.Comp.DamageContainerID))
         {
-            return;
+            // Far Horizons, handle fake components from conditional healing
+            if(args.Used is null || _conditionalHealing.SelectBestMatch(args.Used.Value, entity) is not ConditionalHealingData fallbackData)
+                return;
+            healing = ConditionalHealingSystem.MakeComponent(fallbackData);
         }
 
         // Heal some bloodloss damage.

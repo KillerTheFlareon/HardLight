@@ -52,7 +52,7 @@ public sealed class ConditionalHealingSystem : EntitySystem
                 .Select(p => (ConditionalHealingData?)p.Healing)
                 .FirstOrDefault((ConditionalHealingData?)null);
 
-    private static HealingComponent MakeComponent(ConditionalHealingData data) =>
+    public static HealingComponent MakeComponent(ConditionalHealingData data) =>
         new()
         {
             Damage = data.Damage,
