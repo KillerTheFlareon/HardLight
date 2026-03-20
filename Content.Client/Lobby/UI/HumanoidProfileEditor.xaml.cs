@@ -1657,6 +1657,20 @@ namespace Content.Client.Lobby.UI
                     break;
                 }
                 // End Frontier
+                case HumanoidSkinColor.AnimalFur: // Einstein Engines - Tajaran
+                    {
+                        if (!RgbSkinColorContainer.Visible)
+                        {
+                            Skin.Visible = false;
+                            RgbSkinColorContainer.Visible = true;
+                        }
+
+                        var color = SkinColor.ClosestAnimalFurColor(_rgbSkinColorSelector.Color);
+
+                        Markings.CurrentSkinColor = color;
+                        Profile = Profile.WithCharacterAppearance(Profile.Appearance.WithSkinColor(color));
+                        break;
+                }
             }
 
             ReloadProfilePreview();
@@ -1966,6 +1980,18 @@ namespace Content.Client.Lobby.UI
                     break;
                 }
                 // End Frontier
+                case HumanoidSkinColor.AnimalFur: // Einstein Engines - Tajaran
+                    {
+                        if (!RgbSkinColorContainer.Visible)
+                        {
+                            Skin.Visible = false;
+                            RgbSkinColorContainer.Visible = true;
+                        }
+
+                        _rgbSkinColorSelector.Color = SkinColor.ClosestAnimalFurColor(Profile.Appearance.SkinColor);
+
+                        break;
+                }
             }
 
         }
