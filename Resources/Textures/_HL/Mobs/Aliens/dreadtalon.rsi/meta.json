@@ -12,6 +12,12 @@
       "directions": 4
     },
 	{
+      "name": "crit"
+    },
+	{
+      "name": "dead"
+    },
+	{
       "name": "bananatalonglow",
       "directions": 4
     },
