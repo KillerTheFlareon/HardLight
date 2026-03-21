@@ -27,6 +27,8 @@ public sealed partial class ConditionalHealingData
     public SoundSpecifier? HealingBeginSound = null;
     [DataField]
     public SoundSpecifier? HealingEndSound = null;
+    [DataField]
+    public int AdjustEyeDamage = 0;
 }
 
 [Serializable, NetSerializable, DataDefinition]

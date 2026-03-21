@@ -22,6 +22,8 @@ using Content.Shared.Stacks;
 using Content.Shared.Body.Systems; // Shitmed Change
 using Content.Server._FarHorizons.Medical.ConditionalHealing; // Far Horizons
 using Content.Shared._FarHorizons.Medical.ConditionalHealing; // Far Horizons
+using Content.Shared.Eye.Blinding.Components; // Far Horizons
+using Content.Shared.Eye.Blinding.Systems; // Far Horizons
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Random;
 using Robust.Shared.Audio;
@@ -47,6 +49,7 @@ public sealed class HealingSystem : EntitySystem
     [Dependency] private readonly SharedSolutionContainerSystem _solutionContainerSystem = default!;
     [Dependency] private readonly SharedBodySystem _bodySystem = default!; // Shitmed Change
     [Dependency] private readonly ConditionalHealingSystem _conditionalHealing = default!; // Far Horizons
+    [Dependency] private readonly BlindableSystem _blindable = default!; // Far Horizons
 
     public override void Initialize()
     {
@@ -101,6 +104,11 @@ public sealed class HealingSystem : EntitySystem
         if (healing.ModifyBloodLevel != 0)
             _bloodstreamSystem.TryModifyBloodLevel(entity.Owner, healing.ModifyBloodLevel);
 
+        // Far Horizons
+        // Restores vision
+        if (healing.AdjustEyeDamage != 0 && TryComp(entity, out BlindableComponent? blindable))
+            _blindable.AdjustEyeDamage((entity, blindable), healing.AdjustEyeDamage);
+
         // HardLight Change start
         // Determines if the entity is a Synth and scales damage recovery accordingly.
         var damageToApply = healing.Damage;
@@ -113,7 +121,7 @@ public sealed class HealingSystem : EntitySystem
 
         // HardLight Change end
 
-        if (healed == null && healing.BloodlossModifier != 0)
+        if (healed == null && healing.BloodlossModifier != 0 && healing.AdjustEyeDamage != 0) // Far Horizons - added eye healing
             return;
 
         var total = healed?.GetTotal() ?? FixedPoint2.Zero;
