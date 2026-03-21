@@ -173,7 +173,7 @@
   - type: Speech
     speechVerb: Robotic
     speechSounds: Borg
-    allowedEmotes: ['Chirp', 'Hisses', 'Squish', 'Purr', 'Growl', 'Trill', 'Scree', 'Call', 'Squawk', 'Bark', 'Snarl', 'Whine', 'Howl', 'Yip', 'Mew', 'Meow','Thump', 'Liss', 'Lurr', 'Rattle', "Marr", "Wurble", 'Chitter', 'Squeak', 'Click', 'Beep', 'Ping', 'Buzz', 'Buzz-Two', 'Chime', 'Honk']
+    allowedEmotes: ['Chirp', 'Squish', 'Purr', 'Growl', 'Trill', 'Scree', 'Call', 'Squawk', 'Bark', 'Snarl', 'Whine', 'Howl', 'Yip', 'Mew', 'Meow','Thump', "Marr", "Wurble", 'Chitter', 'Squeak', 'Click', 'Beep', 'Ping', 'Buzz', 'Buzz-Two', 'Chime', 'Honk']
   - type: Vocal
     sounds:
       Male: MaleProtogen
@@ -849,12 +849,6 @@
       damage:
         groups:
           Brute: -30 # 5 for each type with reduction applied
-    - type: Shadekin
-      thresholds:
-        0.8: Low
-        5: Annoying
-        10: High
-        15: Extreme
     - type: Hunger
     - type: Thirst
     - type: HumanoidAppearance 
@@ -2392,16 +2386,6 @@
     - type: Stasis
       enterStasisAction: ActionStasisEnter
       exitStasisAction: ActionStasisExit
-      updateInterval: 1s
-      healingPerUpdate:
-        types:
-          Heat: 2
-          Cold: 2
-        groups:
-          Brute: 6
-      bleedHealPerUpdate: 1.0
-      critHealingModifier: 0.5
-      stasisDamageReduction: 0.7
 
 - type: entity
   parent: BaseSpeciesDummy
@@ -2486,10 +2470,7 @@
     reactions:
   # Damage (Self)
   - type: Bloodstream
-    bloodReferenceSolution:
-        reagents:
-        - ReagentId: CopperBlood
-          Quantity: 300
+    bloodReagent: CopperBlood
   # Damage (Others)
   - type: MeleeWeapon
     animation: WeaponArcBite

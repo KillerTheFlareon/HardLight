@@ -54,16 +54,8 @@
       collection: Growl
     Howl:
       path: /Audio/_Starlight/Effects/howl.ogg
-    Liss:
-      collection: ReptilianHiss
-    Lurr:
-      path: /Audio/_Starlight/Voice/Reptilian/lizard_purr.ogg
-    Rattle:
-      path: /Audio/_Starlight/Voice/Reptilian/lizard_rattle.ogg
     Squish:
       collection: Squishes
-    Hisses:
-      collection: FelionoidHisses
     Click:
       path: /Audio/Voice/Arachnid/arachnid_click.ogg
     Chitter:
@@ -90,8 +82,6 @@
       collection: ResomiCalls
     Squawk:
       collection: ResomiSquawk
-    Marr:
-      path: /Audio/_Starlight/Voice/Shadekin/mar.ogg
     Wurble:
       path: /Audio/_Starlight/Voice/Shadekin/wurble.ogg
     Snarl:
@@ -104,8 +94,6 @@
   sounds:
     Snarl:
       collection: VulpkaninSnarls
-    Marr:
-      path: /Audio/_Starlight/Voice/Shadekin/mar.ogg
     Wurble:
       path: /Audio/_Starlight/Voice/Shadekin/wurble.ogg
     Chirp:
@@ -124,8 +112,6 @@
       collection: FemaleSneezes
     Cough:
       collection: FemaleCoughs
-    Hisses:
-      collection: FelionoidHisses
     Purr:
       collection: FelionoidPurrs
     CatMeow:
@@ -168,12 +154,6 @@
       collection: Growl
     Howl:
       path: /Audio/_Starlight/Effects/howl.ogg
-    Liss:
-      collection: ReptilianHiss
-    Lurr:
-      path: /Audio/_Starlight/Voice/Reptilian/lizard_purr.ogg
-    Rattle:
-      path: /Audio/_Starlight/Voice/Reptilian/lizard_rattle.ogg
     Squish:
       collection: Squishes
     Click:

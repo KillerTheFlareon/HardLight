@@ -39,3 +39,48 @@
 
 - type: Tag
   id: Organic
+
+- type: Tag
+  id: RamChip
+
+- type: Tag
+  id: TrueProtogen
+
+- type: Tag
+  id: ProtoArachnid
+
+- type: Tag
+  id: ProtoAvali
+
+- type: Tag
+  id: ProtoDawi
+
+- type: Tag
+  id: ProtoDionae
+
+- type: Tag
+  id: ProtoFeline
+
+- type: Tag
+  id: ProtoHumie
+
+- type: Tag
+  id: ProtoMoth
+
+- type: Tag
+  id: ProtoReptile
+
+- type: Tag
+  id: ProtoResomi
+
+- type: Tag
+  id: ProtoThaven
+
+- type: Tag
+  id: ProtoVox
+
+- type: Tag
+  id: ProtoVulp
+
+- type: Tag
+  id: ProtoKin

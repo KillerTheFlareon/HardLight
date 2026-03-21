@@ -12,7 +12,6 @@
   hasSubspecies: true # This is the "parent" species that will be displayed in species list as well as subspecies list
   subspeciesName: subspecies-name-protogen # This name is dispayed when you're picking subspecies
   loadout: ProtogenLoadout
-  customName: true
 
 - type: speciesBaseSprites
   id: MobProtogenSprites
@@ -183,16 +182,9 @@
   markingLimits: MobProtoVulpMarkingLimits
   dollPrototype: MobProtoVulpDummy
   skinColoration: Hues
-  customName: true
   subspeciesOf: Protogen # This is alternative version of other species. It will only be displayed in subspecies list
   subspeciesName: subspecies-name-protovulp
   loadout: ProtogenLoadout
-  minHeight: 0.9
-  defaultHeight: 1
-  maxHeight: 1.2
-  standardSize: 170
-  standardWeight: 75
-  standardDensity: 110
 
 - type: speciesBaseSprites
   id: MobProtoVulpSprites
@@ -357,7 +349,6 @@
   markingLimits: MobProtoVoxMarkingLimits
   dollPrototype: MobProtoVoxDummy
   skinColoration: Hues
-  customName: true
   subspeciesOf: Protogen
   subspeciesName: subspecies-name-protovox
   sexes:
@@ -445,7 +436,6 @@
   markingLimits: MobProtoThavenMarkingLimits
   dollPrototype: MobProtoThavenDummy
   skinColoration: Hues
-  customName: true
   subspeciesOf: Protogen
   subspeciesName: subspecies-name-protothaven
   maleFirstNames: NamesThaven
@@ -530,7 +520,6 @@
   markingLimits: MobProtoSlimePersonMarkingLimits
   dollPrototype: MobProtoSlimePersonDummy
   skinColoration: Hues
-  customName: true
   subspeciesOf: Protogen
   subspeciesName: subspecies-name-protoslimeperson
   loadout: ProtogenLoadout
@@ -607,7 +596,6 @@
   markingLimits: MobProtoKinMarkingLimits
   dollPrototype: MobProtoKinDummy
   skinColoration: Hues
-  customName: true
   subspeciesOf: Protogen
   subspeciesName: subspecies-name-protokin
   maleFirstNames: names_shadekin
@@ -694,7 +682,6 @@
   markingLimits: MobProtoResomiMarkingLimits
   dollPrototype: MobProtoResomiDummy
   skinColoration: Hues
-  customName: true
   subspeciesOf: Protogen # This is alternative version of other species. It will only be displayed in subspecies list
   subspeciesName: subspecies-name-protoresomi
   maleFirstNames: NamesResomiMale
@@ -708,9 +695,6 @@
   youngAge: 103
   oldAge: 257
   maxAge: 430
-  standardSize: 150
-  standardWeight: 40
-  standardDensity: 17
   loadout: ProtogenLoadout
 
 - type: speciesBaseSprites
@@ -787,7 +771,6 @@
   markingLimits: MobProtoReptileMarkingLimits
   dollPrototype: MobProtoReptileDummy
   skinColoration: Hues
-  customName: true
   subspeciesOf: Protogen
   subspeciesName: subspecies-name-protoreptile
   maleFirstNames: NamesReptilianMale
@@ -869,7 +852,6 @@
   markingLimits: MobProtoMothMarkingLimits
   dollPrototype: MobProtoMothDummy
   skinColoration: Hues
-  customName: true
   subspeciesOf: Protogen
   subspeciesName: subspecies-name-protomoth
   maleFirstNames: NamesMothFirstMale
@@ -951,7 +933,6 @@
   markingLimits: MobProtoHumieMarkingLimits
   dollPrototype: MobProtoHumieDummy
   skinColoration: Hues
-  customName: true
   subspeciesOf: Protogen
   subspeciesName: subspecies-name-protohumie
   loadout: ProtogenLoadout
@@ -1028,19 +1009,12 @@
   markingLimits: MobProtoFelineMarkingLimits
   dollPrototype: MobProtoFelineDummy
   skinColoration: Hues
-  customName: true
   subspeciesOf: Protogen
   subspeciesName: subspecies-name-protofeline
   loadout: ProtogenLoadout
   maleFirstNames: names_felionoid
   femaleFirstNames: names_felionoid
   naming: First
-  minHeight: 0.8
-  defaultHeight: 0.8
-  maxHeight: 0.9
-  standardSize: 170
-  standardWeight: 48
-  standardDensity: 45
 
 - type: speciesBaseSprites
   id: MobProtoFelineSprites
@@ -1116,16 +1090,9 @@
   dollPrototype: MobProtoDawiDummy
   defaultSkinTone: "#666666"
   skinColoration: Hues
-  customName: true
   subspeciesOf: Protogen
   subspeciesName: subspecies-name-protodawi
   loadout: ProtogenLoadout
-  minWidth: 1.25
-  defaultWidth: 1.25
-  maxWidth: 1.5
-  minHeight: 0.8
-  defaultHeight: 0.8
-  maxHeight: 0.85
 
 - type: markingPoints
   id: MobProtoDawiMarkingLimits
@@ -1174,7 +1141,6 @@
   dollPrototype: MobProtoDionaeDummy
   defaultSkinTone: "#cdb369"
   skinColoration: Hues
-  customName: true
   maleFirstNames: NamesDionaFirst
   femaleFirstNames: NamesDionaFirst
   lastNames: NamesDionaLast
@@ -1182,9 +1148,6 @@
   subspeciesOf: Protogen
   subspeciesName: subspecies-name-protodionae
   loadout: ProtogenLoadout
-  standardSize: 200
-  standardWeight: 145
-  standardDensity: 130
 
 - type: speciesBaseSprites
   id: MobProtoDionaeSprites
@@ -1262,7 +1225,6 @@
   dollPrototype: MobProtoAvaliDummy
   defaultSkinTone: "#D2B48C"
   skinColoration: Hues
-  customName: true
   maleFirstNames: names_avali_first
   femaleFirstNames: names_avali_first
   lastNames: names_avali_packs
@@ -1274,12 +1236,6 @@
   youngAge: 103
   oldAge: 257
   maxAge: 430
-  minHeight: 0.8
-  defaultHeight: 0.91
-  maxHeight: 1
-  standardSize: 150 # gives a range of 130-150cm and 27-31kg
-  standardWeight: 31
-  standardDensity: 11
 
 - type: speciesBaseSprites
   id: MobProtoAvaliSprites
@@ -1359,7 +1315,6 @@
   dollPrototype: MobProtoArachnidDummy
   defaultSkinTone: "#385878"
   skinColoration: Hues
-  customName: true
   subspeciesOf: Protogen
   subspeciesName: subspecies-name-protoarachnid
   loadout: ProtogenLoadout

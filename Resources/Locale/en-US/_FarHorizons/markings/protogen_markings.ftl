@@ -91,12 +91,6 @@ marking-ProtoDionaeVines = Long Dionae Vines
 
 marking-ProtoDionaeMediumArmor = Standard Protogen-Dionae Cybernetics
 
-marking-ProtoCyclopsVisor = Cyclops Visor
-marking-ProtoCyclopsLEDFace = Default Cyclops LEDs
-marking-ProtoCyclopsLights = Circular LEDs
-
-marking-ProtoCyclopsMediumArmor = Standard Protogen-Cyclops Cybernetics
-
 marking-ProtoAvaliVisor = Avali Visor
 marking-ProtoAvaliLEDFace = Default Avali LEDs
 marking-ProtoAvaliLights = Circular LEDs
