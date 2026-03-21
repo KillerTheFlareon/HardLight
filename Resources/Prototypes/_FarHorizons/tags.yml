@@ -84,3 +84,6 @@
 
 - type: Tag
   id: ProtoKin
+
+- type: Tag
+  id: ProtoSlimePerson

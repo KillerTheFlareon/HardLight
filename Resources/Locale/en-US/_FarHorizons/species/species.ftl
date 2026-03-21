@@ -12,6 +12,5 @@ subspecies-name-protohumie = Proto-Humie
 subspecies-name-protofeline = Proto-Feline
 subspecies-name-protodawi = Proto-Dawi
 subspecies-name-protodionae = Proto-Dionae
-subspecies-name-protocyclops = Proto-Cyclops
 subspecies-name-protoavali = Proto-Avali
 subspecies-name-protoarachnid = Proto-Arachnid

@@ -166,7 +166,6 @@
   - type: Item
     size: Small
     heldPrefix: stomach
-    isSpecialDigestibleExclusive: false
   - type: SolutionContainerManager
     solutions:
       stomach:
@@ -281,7 +280,6 @@
         reagents:
         - ReagentId: UncookedAnimalProteins
           Quantity: 5
-    isSpecialDigestibleExclusive: false
   - type: Metabolizer
     # mm very yummy
     maxReagents: 5
