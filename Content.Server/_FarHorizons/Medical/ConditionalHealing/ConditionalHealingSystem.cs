@@ -63,5 +63,6 @@ public sealed class ConditionalHealingSystem : EntitySystem
             SelfHealPenaltyMultiplier = data.SelfHealPenaltyMultiplier,
             HealingBeginSound = data.HealingBeginSound,
             HealingEndSound = data.HealingEndSound,
+            AdjustEyeDamage = data.AdjustEyeDamage,
         };
 }
