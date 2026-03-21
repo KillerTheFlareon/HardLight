@@ -337,10 +337,7 @@
       Burn:
         sprite: Mobs/Effects/burn_damage.rsi
   - type: Bloodstream
-    bloodReferenceSolution:
-      reagents:
-      - ReagentId: AmmoniaBlood
-        Quantity: 300
+    bloodReagent: AmmoniaBlood
   - type: Sprite # Need to redefine the whole order to draw the tail over their gas tank
     layers:
     - map: [ "enum.HumanoidVisualLayers.TailBehind" ]  # HL Modification
@@ -756,10 +753,7 @@
       Burn:
         sprite: Mobs/Effects/burn_damage.rsi
   - type: Bloodstream
-    bloodReferenceSolution:
-      reagents:
-      - ReagentId: Slime
-        Quantity: 300
+    bloodReagent: Slime
   - type: Barotrauma
     damage:
       types:
@@ -1567,10 +1561,7 @@
     - id: FoodMeat
       amount: 5
   - type: Bloodstream
-    bloodReferenceSolution:
-      reagents:
-      - ReagentId: InsectBlood
-        Quantity: 300
+    bloodReagent: InsectBlood
   - type: DamageVisuals
     damageOverlayGroups:
       Brute:
@@ -2341,10 +2332,7 @@
           sprite: Mobs/Effects/brute_damage.rsi
           color: "#6C3BAA"
     - type: Bloodstream
-      bloodReferenceSolution:
-        reagents:
-        - ReagentId: AvaliBlood
-          Quantity: 300
+      bloodReagent: AmmoniaBlood
     - type: Temperature
       currentTemperature: 261
       specificHeat: 48
